@@ -1,0 +1,81 @@
+@media (max-width: 1024px) {
+	.section-2 .left, .section-2 .right {
+		width: 100%;
+		float: none;
+	}
+	.section-3 .left, .section-3 .right {
+		width: 100%;
+		float: none;
+	}
+	.section-3 {
+		display: block;
+	}
+	.section-2 .right, .section-3 .left {
+		padding: 2rem;
+	}
+	.button {
+		text-align: center !important;
+	}
+	.section-3 .title, .section-4 .title, .section-5 .title, .section-6 .title, .section-7 .title {
+		text-align: center !important;
+	}
+	.section-3 .right img {
+		bottom: -115px;
+	}
+}
+@media (max-width: 992px) {
+	
+}
+@media (max-width: 800px) {
+	
+}
+
+@media (max-width: 768px) {
+	
+}
+@media only screen and (min-width: 601px) {
+	
+}
+
+@media (max-width: 580px) {
+	
+	.section-1 .title {
+		font-size: 3rem;
+	}
+	.section-1 .text {
+		font-size: 2rem;
+	}
+	.section-3 .title, .section-4 .title, .section-5 .title, .section-6 .title, .section-7 .title {
+		font-size: 2.4rem;
+	}
+	.section-1 {
+		padding: 3rem 0 !important;
+	}
+
+}
+@media (max-width: 400px) {
+	.section-1 .logo {
+		width: 250px;
+	}
+	.section-1 .title {
+		font-size: 2.4rem;
+	}
+	.section-1 .ruler ul li {
+		margin-bottom: 1rem;
+	}
+	.btn{
+		margin-bottom: 2rem;
+		padding: 0.5rem .5rem;
+		font-size: 1.4rem;
+	}
+	.modal {
+		width: 90% !important;
+	}
+	}
+	.steps-head {
+		width: 90%;
+	}
+}
+@media (max-width: 320px) {
+	
+}
