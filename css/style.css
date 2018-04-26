@@ -154,6 +154,35 @@ a i {
   color: #444;
   text-shadow: 0 0 0 transparent;
 }
+.section-1 .note {
+  margin-top: 2rem;
+}
+.section-1 .note ul li {
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1; /* Fix for IE7 */
+  *display: inline; /* Fix for IE7 */
+  position: relative;
+  padding-left: 1.5rem;
+}
+.section-1 .note ul li a {
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+.section-1 .note ul li::before {
+  content: '';
+  position: absolute;
+  top: 0.7rem;
+  left: 0rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 3px;
+  background: #fff;
+}
+.section-1 .note ul li:last-child {
+  margin-right: 0;
+}
 .section-2 .left, .section-2 .right {
   width: 50%;
   float: left;
@@ -240,7 +269,6 @@ a i {
   margin-top: 3rem;
 }
 .section-4 {
-  color: #fff;
   padding: 6rem 0;
   counter-reset: my-awesome-counter;
 }
@@ -254,6 +282,7 @@ a i {
   text-transform: uppercase;
   margin-bottom: 2rem;
   font-size: 3rem;
+  color: #004d3e;
 }
 .section-4 .item {
   text-align: left;
@@ -270,8 +299,8 @@ a i {
   border-radius: 3px;
   position: absolute;
   left: 0;
-  background: #fff;
-  color: #004d3e;
+  background: #004d3e;
+  color: #fff;
   text-align: center;
   font-weight: 500;
 }
@@ -283,12 +312,13 @@ a i {
   max-width: 60rem;
   margin: 0 auto;
   text-align: center;
+  color: #fff;
 }
 .section-5 .title {
   text-transform: uppercase;
   line-height: 1.5;
   font-size: 3rem;
-  color: #004d3e;
+  color: #fff;
   margin-bottom: 1rem;
 }
 .section-5 .text {
@@ -317,6 +347,7 @@ a i {
   text-align: center;
   color: #fff;
   line-height: 1.5;
+  margin: 0 auto;
 }
 .section-6 .title {
   font-size: 3rem;
@@ -499,6 +530,12 @@ a i {
   border: 0;
   border-bottom: 1px dotted rgba(0, 0, 0, 0.5);
 }
+.input-field input[type="file"] + label {
+  top: -1rem;
+}
+#oldFileLink {
+  color: #004d3e;
+}
 .presenter .address {
   height: 130px;
 }
@@ -524,4 +561,56 @@ a i {
 }
 .section-1 .note a {
   color: #fffc00;
+}
+.thanks {
+  text-align: center;
+  padding: 4rem 0;
+}
+.updatearticle .search .rowSearch {
+  text-align: center;
+  border-bottom:  1px solid #e8e8e8;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.updatearticle .search .note {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.updatearticle .search .rowSearch .input-field {
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1; /* Fix for IE7 */
+  *display: inline; /* Fix for IE7 */
+  margin-right: 1rem;
+}
+.updateform {
+
+}
+.oldFileLink {
+  display: none;
+}
+.articleInfo {
+  display: none;
+}
+.thanks a {
+  color: #004d3e;
+  margin-top: 1rem;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1; /* Fix for IE7 */
+  *display: inline; /* Fix for IE7 */
+}
+.thanks.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+}
+.thanks .images {
+  width: 100px;
+}
+.thanks .images img {
+  width: 100%;
+  display: block;
 }

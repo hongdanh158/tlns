@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -37,35 +36,6 @@
 	<script src="js/script.js?v=1"></script>
 </head>
 <body>
-<section class="section-1 parallax-window" data-parallax="scroll" data-image-src="images/section-1.jpg">
-	<div class="content wow pulse" data-wow-duration="1.5s">
-		<img class="logo" src="images/logo.png" alt="Trường Đại học An Giang">
-		<h2 class="title">
-			Hội thảo khoa học Quốc tế
-		</h2>
-		<h1 class="text">
-			<span class="symbol">"</span>Triết lý nhân sinh của người dân Nam bộ<span class="symbol">"</span>
-		</h1>
-		<div class="time">
-			Thời gian dự kiến: <span class="date">08/2018</span> - Thời lượng: <span class="date">2 ngày</span>
-		</div>
-		<div class="ruler">
-			<ul>
-				<li><a href="javascript:showModal('#bantochuc')" title="Ban tổ chức">Ban tổ chức</a></li>
-				<li><a href="javascript:showModal('#donvitaitro')" title="Đơn vị tài trợ">Đơn vị tài trợ</a></li>
-				<li><a href="javascript:showModal('#articleRuler')" title="Thể lệ gửi bài đăng">Thể lệ gửi bài đăng</a></li>
-			</ul>
-		</div>
-		<div class="button">
-			<a href="javascript:showModal('#registration')" class="btn">ĐĂNG KÝ THAM DỰ</a> &nbsp; &nbsp;
-			<a href="javascript:showModal('#presenter')" class="btn">GỬI BÀI THAM LUẬN</a>
-		</div> <br>
-		<p class="note">
-			Bạn muốn cập nhật bài tham luận đã gửi trước đó, vui lòng <a href="javascript:showModal('#updateArticle'">bấm vào đây để cập nhật</a>.
-		</p>
-		<div class="clear"></div>
-	</div>
-</section>
 <div id="registration" class="modal registration">
 	<div class="modal-title"><i class="fab fa-slideshare"></i> Đăng ký tham dự Hội thảo
 		<span class="close"><i class="far fa-times-circle"></i></span>
@@ -73,7 +43,7 @@
 	<div class="modal-content">
 		<!-- <form action="http://localhost/cf/api/user" method="post"> -->
 			<input type="hidden" id="postLink" name="postLink" value="http://localhost/cf/api/resigter">
-			<input type="hidden" id="siteUrl" name="siteUrl" value="http://localhost/tlns">
+			<input type="hidden" id="token" name="token" value="sdf389dxbf1sdz51fga65dfg74asdf">
 			<input type="hidden" id="conferenceId" name="conference_id" value="1">
 			<div class="row">
 				<div class="input-field">
@@ -113,7 +83,10 @@
 	<div class="content">
 		<form action="http://localhost/cf/api/sendArticle" method="post" id="presenterForm" enctype="multipart/form-data">
 			<input type="hidden" id="postLink" name="postLink" value="http://localhost/cf/api/sendArticle">
-			<input type="hidden" id="siteUrl" name="siteUrl" value="http://localhost/tlns">
+			<input type="hidden" id="returnUrl" name="existUrl" value="http://localhost/tlns/article-already-exists.html">
+			<input type="hidden" id="returnUrl" name="successUrl" value="http://localhost/tlns/thanks-for-send.html">
+			<input type="hidden" id="returnUrl" name="failedUrl" value="http://localhost/tlns/send-failed.html">
+			<input type="hidden" id="token" name="token" value="sdf389dxbf1sdz51fga65dfg74asdf">
 			<input type="hidden" id="conferenceId" name="conference_id" value="1">
 			<div class="steps-container">
 				<ul class="steps-head">
@@ -228,6 +201,129 @@
 		Đơn vị tài trợ
 	</div>
 </div>
+<div id="updateArticle" class="modal updatearticle">
+	<div class="modal-title"><i class="fas fa-users"></i> Cập nhật bài tham luận
+		<span class="close"><i class="far fa-times-circle"></i></span>
+	</div>
+	<div class="modal-content">
+		<div class="search">
+			<p class="note">Nhập <strong>Email</strong> và <strong>Mã bài tham luận</strong> để tìm thông tin bài tham luận</p>
+			<input type="hidden" id="postLink" name="postLink" value="http://localhost/cf/api/searchArticle">
+			<div class="rowSearch">
+		        <div class="input-field">
+		          <input id="email" name="email" type="text">
+		          <label for="email">Email</label>
+		        </div>
+		        <div class="input-field">
+		          <input id="articleId" name="article_id" type="text">
+		          <label for="articleId">Mã bài tham luận</label>
+		        </div>
+				<div class="input-field">
+					<a href="#" class="btn btnSearch"><i class="fas fa-search"></i> Tìm</a>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="articleInfo" id="articleInfo">
+			<form action="http://localhost/cf/api/updateArticle" method="post" id="updateForm" class="updateform" enctype="multipart/form-data">
+				<input type="hidden" name="successUrl" value="http://localhost/tlns/thanks-for-send.html">
+				<input type="hidden" name="failedUrl" value="http://localhost/tlns/send-failed.html">
+				<input id="articleId" name="article_id" type="hidden">
+				<div class="row">
+			        <div class="input-field">
+			          <input id="tieude" name="tieude" type="text">
+			          <label for="tieude">Tên bài tham luận</label>
+			        </div>
+				</div>
+				<div class="row">
+			        <div class="input-field">
+			          <input id="title" name="title" type="text">
+			          <label for="title">Tên bài Tiếng Anh</label>
+			        </div>
+				</div>
+				<div class="row">
+			        <div class="input-field">
+			          <input id="tukhoa" name="tukhoa" type="text">
+			          <label for="tukhoa">Từ khóa</label>
+			        </div>
+				</div>
+				<div class="row">
+			        <div class="input-field">
+			          <input id="keyword" name="keyword" type="text">
+			          <label for="keyword">Từ khóa Tiếng Anh</label>
+			        </div>
+				</div>
+				<div class="row">
+			        <div class="input-field">
+			          <textarea id="tomtat" name="tomtat" type="text"></textarea>
+			          <label for="tomtat">Tóm tắt </label>
+			        </div>
+				</div>
+				<div class="row">
+			        <div class="input-field">
+			          <textarea id="abtract" name="abtract" type="text"></textarea>
+			          <label for="abtract">Tóm tắt Tiếng Anh</label>
+			        </div>
+				</div>
+				<div class="row">
+					<div class="input-field">
+				      <input type="file" name="fileUpload" id="fileUpload" class="file-field" placeholder="Bài tham luận mới" accept=".doc, .docx">
+				      <label for="fileUpload">Bài tham luận mới</label>
+				    </div>
+				</div>
+				<div class="row oldFileLink">
+					<div class="input-field">
+				      <a href="" id="oldFileLink" target="_blank">Xem bài tham luận cũ</a>
+				      <input type="hidden" name="oldFile" id="oldFile">
+				    </div>
+				</div>
+				<div class="button">
+					<button href="#" class="btn" id="submit"><i class="far fa-envelope"></i> Cập nhật thôn tin</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="listArticles" class="modal listarticles">
+	<div class="modal-title"><i class="fas fa-users"></i> Đơn vị tài trợ
+		<span class="close"><i class="far fa-times-circle"></i></span>
+	</div>
+	<div class="modal-content">
+		Đơn vị tài trợ
+	</div>
+</div>
+<section class="section-1 parallax-window" data-parallax="scroll" data-image-src="images/section-1.jpg">
+	<div class="content wow pulse" data-wow-duration="1.5s">
+		<img class="logo" src="images/logo.png" alt="Trường Đại học An Giang">
+		<h2 class="title">
+			Hội thảo khoa học Quốc tế
+		</h2>
+		<h1 class="text">
+			<span class="symbol">"</span>Triết lý nhân sinh của người dân Nam bộ<span class="symbol">"</span>
+		</h1>
+		<div class="time">
+			Thời gian dự kiến: <span class="date">08/2018</span> - Thời lượng: <span class="date">2 ngày</span>
+		</div>
+		<div class="ruler">
+			<ul>
+				<li><a href="javascript:showModal('#bantochuc')" title="Ban tổ chức">Ban tổ chức</a></li>
+				<li><a href="javascript:showModal('#donvitaitro')" title="Đơn vị tài trợ">Đơn vị tài trợ</a></li>
+				<li><a href="javascript:showModal('#articleRuler')" title="Thể lệ gửi bài đăng">Thể lệ gửi bài đăng</a></li>
+			</ul>
+		</div>
+		<div class="button">
+			<a href="javascript:showModal('#registration')" class="btn">ĐĂNG KÝ THAM DỰ</a> &nbsp; &nbsp;
+			<a href="javascript:showModal('#presenter')" class="btn">GỬI BÀI THAM LUẬN</a>
+		</div>
+		<div class="note">
+			<ul>
+				<li><a href="javascript:showModal('#updateArticle')" title="Ban tổ chức">Cập nhật bài tham luận</a></li>
+				<li><a href="javascript:showModal('#listArticles')" title="Đơn vị tài trợ">Danh sách bài tham luận</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+</section>
 <section class="section-2 parallax-window" data-parallax="scroll" data-image-src="images/section-2-2.jpg">
 	<div class="left">
 		<img src="images/section-2.jpg" alt="">
@@ -261,15 +357,7 @@
 	
 	<div class="clear"></div>
 </section>
-<section class="section-4 parallax-window" data-parallax="scroll" data-image-src="images/section-4.jpg">
-	<div class="content wow fadeIn" data-wow-duration="1.5s">
-		<h2 class="title">Kết quả mong đợi</h2>
-		<div class="item">Góp phần giúp các đại biểu tham dự hội thảo có góc nhìn đa chiều ở nhiều lĩnh vực khác nhau về triết lý nhân sinh của người dân Nam bộ;</div>
-		<div class="item">Tập hợp các nghiên cứu về triết lý nhân sinh thông qua nền văn hóa bản địa Nam bộ;</div>
-		<div class="item">Đề xuất các giải pháp kế thừa và phát huy các giá trị văn hóa đặc sắc phù hợp với triết lý nhân sinh của người dân Nam bộ.</div>
-	</div>
-</section>
-<section class="section-5">
+<section class="section-5 parallax-window" data-parallax="scroll" data-image-src="images/section-4.jpg">
 	<div class="content wow fadeIn" data-wow-duration="1.5s">
 		<h2 class="title">Các chủ đề tham luận</h2>
 		<p class="text">Các bài tham luận cho Hội thảo tập trung vào triết lý nhân sinh của người dân Nam bộ được thể hiện qua các lĩnh vực:</p>
@@ -292,6 +380,14 @@
 		</div>
 	</div>
 	<div class="clear"></div>
+</section>
+<section class="section-4">
+	<div class="content wow fadeIn" data-wow-duration="1.5s">
+		<h2 class="title">Kết quả mong đợi</h2>
+		<div class="item">Góp phần giúp các đại biểu tham dự hội thảo có góc nhìn đa chiều ở nhiều lĩnh vực khác nhau về triết lý nhân sinh của người dân Nam bộ;</div>
+		<div class="item">Tập hợp các nghiên cứu về triết lý nhân sinh thông qua nền văn hóa bản địa Nam bộ;</div>
+		<div class="item">Đề xuất các giải pháp kế thừa và phát huy các giá trị văn hóa đặc sắc phù hợp với triết lý nhân sinh của người dân Nam bộ.</div>
+	</div>
 </section>
 <section class="section-6 parallax-window" data-parallax="scroll" data-image-src="images/section-5.jpg">
 	<div class="content wow fadeIn" data-wow-duration="1.5s">

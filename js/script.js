@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	checkInput()
   new WOW().init();
   setHeight();
   $(window).scroll(function(){
@@ -61,6 +62,7 @@ $(document).ready(function() {
 	});
 	$('#registration #submit').click(function(event) {
 		var postLink     = $('#registration #postLink').val();
+		var token     = $('#registration #token').val();
 		var name         = $('#registration #name').val();
 		var email        = $('#registration #email').val();
 		var phone        = $('#registration #phone').val();
@@ -71,6 +73,7 @@ $(document).ready(function() {
 			type: 'POST',
 			dataType: 'json',
 			data: {
+				token			: token,
 				email  			: email,
 				name   			: name,
 				phone   		: phone,
@@ -93,70 +96,67 @@ $(document).ready(function() {
             }
 		})		
 	});
-	// $('#presenter #submit').click(function(event) {
-	//     event.preventDefault();
-	//     var postLink     = $('#presenterForm #postLink').val();
-	//     var formData = $("#presenterForm").serialize();
-	//     $.ajax({
-	//         url: postLink,
-	//         type: 'POST',
-	// 		dataType: 'json',             
-	//         data: formData,
-	//         success: function(result)
-	//         {
-	//             if (result != 0 && result != 1) {
- //            		successNotiTR("Bạn đã đăng ký tham dự thành công!");
- //            	}
- //            	if (result == 1) {
- //            		errorNotiTR('Thông tin đăng ký đã tồn tại!');
- //            	}
- //            	if (result == 0) {
- //            		waringNotiTR('Đăng ký thất bại, vui lòng thử lại!')
- //            	}
-	//         },
-	//         error: function(data)
-	//         {
-	//             console.log(data);
-	//         }
-	//     });
-	// });
-	// $('#presenter #submit').click(function(event) {
-	// 	$.ajax({
-	// 		url: postLink,
-	// 		type: 'POST',
-	// 		dataType: 'json',
-	// 		data: {
-	// 			email  			: email,
-	// 			name   			: name,
-	// 			phone   		: phone,
-	// 			address 		: address,
-	// 			conference_id 	: conferenceId,
-				
-	// 			tieude  		: tieude,
-	// 			title   		: title,
-	// 			tukhoa   		: tukhoa,
-	// 			keyword   		: keyword,
-	// 			tomtat   		: tomtat,
-	// 			abtract 		: abtract
-	// 			file 			: file
- //            },
- //             beforeSend: function() {
- //              // $('#divloading').addClass('show');
- //            },
- //            success:function(result) {
- //            	if (result != 0 && result != 1) {
- //            		successNotiTR("Bạn đã đăng ký tham dự thành công!");
- //            	}
- //            	if (result == 1) {
- //            		errorNotiTR('Thông tin đăng ký đã tồn tại!');
- //            	}
- //            	if (result == 0) {
- //            		waringNotiTR('Đăng ký thất bại, vui lòng thử lại!')
- //            	}
- //            }
-	// 	})		
-	// });
-})
+	$('.search .btnSearch').click(function(event) {
+		var postLink     = $('.search #postLink').val();
+		var email        = $('.search #email').val();
+		var articleId        = $('.search #articleId').val();
+		$.ajax({
+			url: postLink,
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				email  			: email,
+				article_id   	: articleId
+            },
+             beforeSend: function() {
+              // $('#divloading').addClass('show');
+            },
+            success:function(result) {
+            	if (result == 0) {
+            		waringNotiTR('Không tìm thấy bài tham luận!');
+            		$('.articleInfo').css('display', 'none');
+            	}
+            	else {
+            		$('#updateForm #articleId').val(result[0].id);
+            		$('#updateForm #tieude').val(result[0].tieude);
+            		$('#updateForm #title').val(result[0].title);
+            		$('#updateForm #tomtat').val(result[0].tomtat);
+            		$('#updateForm #abtract').val(result[0].abtract);
+            		$('#updateForm #tukhoa').val(result[0].tukhoa);
+            		$('#updateForm #keyword').val(result[0].keyword);
+            		if (result[0].file != null) {
+            			$('#updateForm #oldFileLink').attr('href', 'http://localhost/cf/uploads/' + result[0].file);
+            			$('#updateForm #oldFile').val(result[0].file);
+            			$('#updateForm .oldFileLink').css('display', 'block');
+            			//Set margin top modal
+            			var num = 0 - ($(window).height() - $('#updateArticle').height() + 150)/2 
+            			$('#updateArticle').css('margin-top', num);
+            		}
+            		checkInput();
+            		$('.articleInfo').css('display', 'block');
+            	}
+            }
+		})		
+	});
+});
+function checkInput() {
+	$('form input').each(function(index, el) {
+		if ($(this).val() != "") {
+			$(this).closest('.input-field').find('label').eq(0).addClass('active');
+		}
+		else {
+			$(this).closest('.input-field').find('label').eq(0).removeClass('active');
+		}
+	});
+	$('form textarea').each(function(index, el) {
+		if ($(this).val() != "") {
+			$(this).closest('.input-field').find('label').eq(0).addClass('active');
+		}
+		else {
+			$(this).closest('.input-field').find('label').eq(0).removeClass('active');
+		}
+	});
+}
 function showModal(id) {
   	$(id).lightbox_me({
     	centered: true,
