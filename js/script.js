@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	checkInput()
+    checkInput()
   new WOW().init();
   setHeight();
   $(window).scroll(function(){
@@ -19,11 +19,15 @@ $(document).ready(function() {
 		setWidth();
 		var x = 0;
 	    $('.steps .next').click(function(event) {
-	    	x = x + $('.modal.presenter').width();
-	    	transform(x);
-	    	$('.steps-head').find('li').eq(0).removeClass('active');
-	    	$('.steps-head').find('li').eq(1).addClass('active');
-	    	$('.modal.presenter').css('overflow-y', 'auto');
+            $("#presenterForm").parsley().whenValidate({
+              group: 'step1', force: true
+            }).done(function() {
+               x = x + $('.modal.presenter').width();
+                transform(x);
+                $('.steps-head').find('li').eq(0).removeClass('active');
+                $('.steps-head').find('li').eq(1).addClass('active');
+                $('.modal.presenter').css('overflow-y', 'auto');
+            });
 	    });
 	     $('.steps .prev').click(function(event) {
 	    	x = x - $('.modal.presenter').width();
@@ -97,9 +101,9 @@ $(document).ready(function() {
 		})		
 	});
 	$('.search .btnSearch').click(function(event) {
-		var postLink     = $('.search #postLink').val();
-		var email        = $('.search #email').val();
-		var articleId        = $('.search #articleId').val();
+        var postLink     = $('.search #postLink').val();
+        var email        = $('.search #email').val();
+        var articleId    = $('.search #articleId').val();
 		$.ajax({
 			url: postLink,
 			type: 'POST',

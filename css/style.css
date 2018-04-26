@@ -614,3 +614,37 @@ a i {
   width: 100%;
   display: block;
 }
+.amaran-wrapper.top {
+  top: 65px !important;
+}
+.amaran-close {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    display: block;
+    text-align: center;
+    line-height: 20px;
+    color: #bf0606;
+}
+.amaran-close:before {
+  color: #bf0606;
+}
+.amaran.awesome {
+  font-family: 'Roboto Condensed', sans-serif!important;
+  font-size: 14px!important;
+  border: 1px solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.amaran.awesome p span.light {
+  display: none;
+}
+.parsley-errors-list {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+.parsley-errors-list li {
+    color: red;
+    list-style: none;
+}

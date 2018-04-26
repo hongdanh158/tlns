@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -34,23 +33,11 @@
 	<script src="js/parallax.min.js?v=1"></script>
 	<script src="js/wow/wow.min.js?v=1"></script>
 	<script src="js/lightbox_me.js"></script>
+	<script src="js/parsley.min.js"></script>
+	<script src="js/i18n/vi.js"></script>
 	<script src="js/script.js?v=1"></script>
+	<?php
+		$GLOBALS['url_site'] = 'http://localhost/tlns';
+		$GLOBALS['url_post'] = 'http://localhost/cf/api';
+	?>
 </head>
-<body>
-<section class="thanks">
-	<div class="content">
-		<a href="http://localhost/tlns" class="text-center images">
-			<img src="images/thanks.png" alt="Cảm ơn Quý Thầy/Cô đã gửi bài Tham Luận!">
-		</a> <br>
-		<p>Thao tác thành công</p>
-		<a href="http://localhost/tlns" class="text-center"><i class="fas fa-arrow-left"></i> Trở về trang chủ</a>
-	</div>
-</section>
-<footer class="thanks footer">
-	<p>© AN GIANG UNIVERSITAS - RESEARCH AND INTERNATIONAL RELATIONS OFFICE</p>
-	<p>No 18 Ung Van Khiem - Dong Xuyen Ward - Long Xuyen City - An Giang Province </p>
-	<p>Phone: 0296.6256565 - 1711 - Email: riro@agu.edu.vn</p>
-</footer>
-<div class="scrollToTop"><i class="fas fa-arrow-up"></i></div>
-</body>
-</html>

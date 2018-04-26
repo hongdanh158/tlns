@@ -1,59 +1,26 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-	<meta charset="UTF-8">
-	<!-- <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" name="viewport" /> -->
-	<meta http-equiv="content-language" content="vi" />
-	<link rel="alternate" href="http://thanhtunghairsalon.com/landing-page/index.html" hreflang="vi-vn" />
-	<title>Hội thảo Khoa học Quốc tế - Triết lý nhân sinh của người dân Nam bộ</title>
-	<meta name="description" content="Nhằm nâng cao nhận thức, kiến thức văn hóa bản địa và tạo điều kiện cho các nhà khoa học, cán bộ, giảng viên và sinh viên có thể trao đổi, chia sẻ những kiến thức về vùng đất đa dạng về tôn giáo, phong tục tập quán, cũng như những nét văn hóa và bản sắc dân tộc đặc trưng của con người Nam bộ, nơi được xem như tiểu Cộng đồng văn hóa ASEAN." />
-	<meta name="keywords" content="hội thảo, hội thảo quốc tế, triết lý nhân sinh, đồng bằng sông cửu long, hội thảo triết lý nhân sinh, người dân đồng bằng sông cửu long" />
-	<meta name="news_keywords" content="hội thảo, hội thảo quốc tế, triết lý nhân sinh, đồng bằng sông cửu long, hội thảo triết lý nhân sinh, người dân đồng bằng sông cửu long" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Thanh Tùng HairSpa" />
-	<meta name="copyright" content="Lê Trương Hồng Danh [lthdanh@gmail.com]" />
-	<meta name="robots" content="index, archive, follow, noodp" />
-	<meta name="googlebot" content="index,archive,follow,noodp" />
-	<meta name="msnbot" content="all,index,follow" />
-	<meta property="og:title" content='Triết lý nhân sinh của người dân Nam bộ' />
-	<meta property="og:type" content="WebSite" />
-	<meta property="og:description" content="Nhằm nâng cao nhận thức, kiến thức văn hóa bản địa và tạo điều kiện cho các nhà khoa học, cán bộ, giảng viên và sinh viên có thể trao đổi, chia sẻ những kiến thức về vùng đất đa dạng về tôn giáo, phong tục tập quán, cũng như những nét văn hóa và bản sắc dân tộc đặc trưng của con người Nam bộ, nơi được xem như tiểu Cộng đồng văn hóa ASEAN." />
-	<meta property="og:site_name" content="Hội thảo Khoa học Quốc tế - Triết lý nhân sinh của người dân Nam bộ" />
-	<meta property="og:image" content="http://thanhtunghairsalon.com/landing-page/eslabondexx/images/about.jpg" />
-	<meta property="og:url" content="http://thanhtunghairsalon.com/landing-page/eslabondexx/eslabondexx-uon-duoi-nhuom-phuc-hoi-toc-hu-ton.html" />
-	<link rel="canonical" href="http://thanhtunghairsalon.com/landing-page/eslabondexx/eslabondexx-uon-duoi-nhuom-phuc-hoi-toc-hu-ton.html" />
-	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
-	<link rel="stylesheet" href="js/wow/animate.css?v=1">
-	<link rel="stylesheet" href="js/amaran/amaran.min.css">
-	<link rel="stylesheet" href="css/style.css?v=1">
-	<link rel="stylesheet" href="css/responsive.css?v=1">
-	<script src="js/jquery.min.js?v=1"></script>
-	<script src="js/amaran/jquery.amaran.min.js"></script>
-	<script src="js/fontawesome-all.min.js"></script>
-	<script src="js/parallax.min.js?v=1"></script>
-	<script src="js/wow/wow.min.js?v=1"></script>
-	<script src="js/lightbox_me.js"></script>
-	<script src="js/script.js?v=1"></script>
-</head>
+<?php include 'header.php'; ?>
 <body>
 <div id="registration" class="modal registration">
 	<div class="modal-title"><i class="fab fa-slideshare"></i> Đăng ký tham dự Hội thảo
 		<span class="close"><i class="far fa-times-circle"></i></span>
 	</div>
 	<div class="modal-content">
-		<!-- <form action="http://localhost/cf/api/user" method="post"> -->
-			<input type="hidden" id="postLink" name="postLink" value="http://localhost/cf/api/resigter">
+		<form action="<?php echo $url_post ?>/resigter" method="post" data-parsley-validate>
+			<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/resigter">
+			<input type="hidden" id="returnUrl" name="existUrl" value="<?php echo $url_site ?>/article-already-exists.html">
+			<input type="hidden" id="returnUrl" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.html">
+			<input type="hidden" id="returnUrl" name="failedUrl" value="<?php echo $url_site ?>/send-failed.html">
 			<input type="hidden" id="token" name="token" value="sdf389dxbf1sdz51fga65dfg74asdf">
 			<input type="hidden" id="conferenceId" name="conference_id" value="1">
 			<div class="row">
 				<div class="input-field">
-		          <input id="name" name="name" type="text">
+		          <input id="name" name="name" type="text" data-parsley-required>
 		          <label for="name">Họ và Tên</label>
 		        </div>
 			</div>
 			<div class="row">
 				<div class="input-field">
-		          <input id="email" name="email" type="text">
+		          <input id="email" name="email" type="email" data-parsley-required>
 		          <label for="email">Email</label>
 		        </div>
 		    </div>
@@ -70,10 +37,10 @@
 		        </div>
 			</div>
 			<div class="row button">
-				<button class="btn" type="button" id="submit"><i class="far fa-envelope"></i> ĐĂNG KÝ THAM DỰ</button> &nbsp; &nbsp;
+				<button class="btn" id="submit"><i class="far fa-envelope"></i> ĐĂNG KÝ THAM DỰ</button> &nbsp; &nbsp;
 				<a href="#" class="btn close"><i class="far fa-trash-alt"></i> HỦY BỎ</a>
 			</div>
-		<!-- </form> -->
+		</form>
 	</div>
 </div>
 <div id="presenter" class="modal presenter">
@@ -81,11 +48,11 @@
 		<span class="close"><i class="far fa-times-circle"></i></span>
 	</div>
 	<div class="content">
-		<form action="http://localhost/cf/api/sendArticle" method="post" id="presenterForm" enctype="multipart/form-data">
-			<input type="hidden" id="postLink" name="postLink" value="http://localhost/cf/api/sendArticle">
-			<input type="hidden" id="returnUrl" name="existUrl" value="http://localhost/tlns/article-already-exists.html">
-			<input type="hidden" id="returnUrl" name="successUrl" value="http://localhost/tlns/thanks-for-send.html">
-			<input type="hidden" id="returnUrl" name="failedUrl" value="http://localhost/tlns/send-failed.html">
+		<form action="<?php echo $url_post ?>/sendArticle" method="post" id="presenterForm" enctype="multipart/form-data" data-parsley-validate>
+			<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/sendArticle">
+			<input type="hidden" id="returnUrl" name="existUrl" value="<?php echo $url_site ?>/article-already-exists.html">
+			<input type="hidden" id="returnUrl" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.html">
+			<input type="hidden" id="returnUrl" name="failedUrl" value="<?php echo $url_site ?>/send-failed.html">
 			<input type="hidden" id="token" name="token" value="sdf389dxbf1sdz51fga65dfg74asdf">
 			<input type="hidden" id="conferenceId" name="conference_id" value="1">
 			<div class="steps-container">
@@ -97,19 +64,19 @@
 			    	<section class="steps step-1" index="1">
 				        <div class="row">
 							<div class="input-field">
-					          <input id="name_2" name="name" type="text">
+					          <input id="name_2" name="name" type="text" data-parsley-required data-parsley-group="step1">
 					          <label for="name_2">Họ và Tên</label>
 					        </div>
 						</div>
 						<div class="row">
 							<div class="input-field">
-					          <input id="email_2" name="email" type="text">
+					          <input id="email_2" name="email" type="email" data-parsley-required data-parsley-group="step1">
 					          <label for="email_2">Email</label>
 					        </div>
 					    </div>
 					    <div class="row">
 					    	<div class="input-field">
-					          <input id="phone_2" name="phone" type="text">
+					          <input id="phone_2" name="phone" type="text" data-parsley-required data-parsley-group="step1">
 					          <label for="phone_2">Điện thoại</label>
 					        </div>
 					    </div>
@@ -126,37 +93,37 @@
 				    <section class="steps step-2" index="2">
 				        <div class="row">
 					        <div class="input-field">
-					          <input id="tieude" name="tieude" type="text">
+					          <input id="tieude" name="tieude" type="text" data-parsley-required data-parsley-group="step2">
 					          <label for="tieude">Tên bài tham luận</label>
 					        </div>
 						</div>
 						<div class="row">
 					        <div class="input-field">
-					          <input id="title" name="title" type="text">
+					          <input id="title" name="title" type="text" data-parsley-required data-parsley-group="step2">
 					          <label for="title">Tên bài Tiếng Anh</label>
 					        </div>
 						</div>
 						<div class="row">
 					        <div class="input-field">
-					          <input id="tukhoa" name="tukhoa" type="text">
+					          <input id="tukhoa" name="tukhoa" type="text" data-parsley-required data-parsley-group="step2">
 					          <label for="tukhoa">Từ khóa</label>
 					        </div>
 						</div>
 						<div class="row">
 					        <div class="input-field">
-					          <input id="keyword" name="keyword" type="text">
+					          <input id="keyword" name="keyword" type="text" data-parsley-required data-parsley-group="step2">
 					          <label for="keyword">Từ khóa Tiếng Anh</label>
 					        </div>
 						</div>
 						<div class="row">
 					        <div class="input-field">
-					          <textarea id="tomtat" name="tomtat" type="text"></textarea>
+					          <textarea id="tomtat" name="tomtat" type="text" data-parsley-required data-parsley-group="step2"></textarea>
 					          <label for="tomtat">Tóm tắt </label>
 					        </div>
 						</div>
 						<div class="row">
 					        <div class="input-field">
-					          <textarea id="abtract" name="abtract" type="text"></textarea>
+					          <textarea id="abtract" name="abtract" type="text" data-parsley-required data-parsley-group="step2"></textarea>
 					          <label for="abtract">Tóm tắt Tiếng Anh</label>
 					        </div>
 						</div>
@@ -208,7 +175,7 @@
 	<div class="modal-content">
 		<div class="search">
 			<p class="note">Nhập <strong>Email</strong> và <strong>Mã bài tham luận</strong> để tìm thông tin bài tham luận</p>
-			<input type="hidden" id="postLink" name="postLink" value="http://localhost/cf/api/searchArticle">
+			<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/searchArticle">
 			<div class="rowSearch">
 		        <div class="input-field">
 		          <input id="email" name="email" type="text">
@@ -226,42 +193,43 @@
 		</div>
 		<div class="articleInfo" id="articleInfo">
 			<form action="http://localhost/cf/api/updateArticle" method="post" id="updateForm" class="updateform" enctype="multipart/form-data">
-				<input type="hidden" name="successUrl" value="http://localhost/tlns/thanks-for-send.html">
-				<input type="hidden" name="failedUrl" value="http://localhost/tlns/send-failed.html">
+				<input type="hidden" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.html">
+				<input type="hidden" name="failedUrl" value="<?php echo $url_site ?>/tlns/send-failed.html">
 				<input id="articleId" name="article_id" type="hidden">
+				<input type="hidden" id="conferenceId" name="conference_id" value="1">
 				<div class="row">
 			        <div class="input-field">
-			          <input id="tieude" name="tieude" type="text">
+			          <input id="tieude" name="tieude" type="text" data-parsley-required>
 			          <label for="tieude">Tên bài tham luận</label>
 			        </div>
 				</div>
 				<div class="row">
 			        <div class="input-field">
-			          <input id="title" name="title" type="text">
+			          <input id="title" name="title" type="text" data-parsley-required>
 			          <label for="title">Tên bài Tiếng Anh</label>
 			        </div>
 				</div>
 				<div class="row">
 			        <div class="input-field">
-			          <input id="tukhoa" name="tukhoa" type="text">
+			          <input id="tukhoa" name="tukhoa" type="text" data-parsley-required>
 			          <label for="tukhoa">Từ khóa</label>
 			        </div>
 				</div>
 				<div class="row">
 			        <div class="input-field">
-			          <input id="keyword" name="keyword" type="text">
+			          <input id="keyword" name="keyword" type="text" data-parsley-required>
 			          <label for="keyword">Từ khóa Tiếng Anh</label>
 			        </div>
 				</div>
 				<div class="row">
 			        <div class="input-field">
-			          <textarea id="tomtat" name="tomtat" type="text"></textarea>
+			          <textarea id="tomtat" name="tomtat" type="text" data-parsley-required></textarea>
 			          <label for="tomtat">Tóm tắt </label>
 			        </div>
 				</div>
 				<div class="row">
 			        <div class="input-field">
-			          <textarea id="abtract" name="abtract" type="text"></textarea>
+			          <textarea id="abtract" name="abtract" type="text" data-parsley-required></textarea>
 			          <label for="abtract">Tóm tắt Tiếng Anh</label>
 			        </div>
 				</div>
@@ -278,7 +246,7 @@
 				    </div>
 				</div>
 				<div class="button">
-					<button href="#" class="btn" id="submit"><i class="far fa-envelope"></i> Cập nhật thôn tin</button>
+					<button href="#" class="btn" id="submit"><i class="far fa-envelope"></i> Cập nhật thông tin</button>
 				</div>
 			</form>
 		</div>
@@ -416,9 +384,7 @@
 	</div>
 </section>
 <footer class="footer">
-	<p>© AN GIANG UNIVERSITAS - RESEARCH AND INTERNATIONAL RELATIONS OFFICE</p>
-	<p>No 18 Ung Van Khiem - Dong Xuyen Ward - Long Xuyen City - An Giang Province </p>
-	<p>Phone: 0296.6256565 - 1711 - Email: riro@agu.edu.vn</p>
+	<?php include('footer.php') ?>
 </footer>
 <div class="scrollToTop"><i class="fas fa-arrow-up"></i></div>
 </body>
