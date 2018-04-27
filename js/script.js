@@ -121,7 +121,7 @@ $(document).ready(function() {
             		$('.articleInfo').css('display', 'none');
             	}
             	else {
-            		$('#updateForm #articleId').val(result[0].id);
+                    $('#updateForm #id').val(result[0].id);
             		$('#updateForm #tieude').val(result[0].tieude);
             		$('#updateForm #title').val(result[0].title);
             		$('#updateForm #tomtat').val(result[0].tomtat);
@@ -129,7 +129,8 @@ $(document).ready(function() {
             		$('#updateForm #tukhoa').val(result[0].tukhoa);
             		$('#updateForm #keyword').val(result[0].keyword);
             		if (result[0].file != null) {
-            			$('#updateForm #oldFileLink').attr('href', 'http://localhost/cf/uploads/' + result[0].file);
+                        var url = url_upload + "/" + result[0].file;
+            			$('#updateForm #oldFileLink').attr('href', url);
             			$('#updateForm #oldFile').val(result[0].file);
             			$('#updateForm .oldFileLink').css('display', 'block');
             			//Set margin top modal

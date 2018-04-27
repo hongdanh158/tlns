@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 	<meta charset="UTF-8">
-	<!-- <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" name="viewport" /> -->
+	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta http-equiv="content-language" content="vi" />
 	<link rel="alternate" href="http://thanhtunghairsalon.com/landing-page/index.html" hreflang="vi-vn" />
 	<title>Hội thảo Khoa học Quốc tế - Triết lý nhân sinh của người dân Nam bộ</title>
@@ -35,9 +35,14 @@
 	<script src="js/lightbox_me.js"></script>
 	<script src="js/parsley.min.js"></script>
 	<script src="js/i18n/vi.js"></script>
-	<script src="js/script.js?v=1"></script>
+	
 	<?php
 		$GLOBALS['url_site'] = 'http://localhost/tlns';
 		$GLOBALS['url_post'] = 'http://localhost/cf/api';
+		$GLOBALS['url_upload'] = 'http://localhost/cf/upload/tlns';
 	?>
+	<script>
+		var url_upload = '<?php echo $url_upload ?>';
+	</script>
+	<script src="js/script.js?v=1"></script>
 </head>

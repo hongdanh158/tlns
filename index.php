@@ -7,9 +7,9 @@
 	<div class="modal-content">
 		<form action="<?php echo $url_post ?>/resigter" method="post" data-parsley-validate>
 			<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/resigter">
-			<input type="hidden" id="returnUrl" name="existUrl" value="<?php echo $url_site ?>/article-already-exists.html">
-			<input type="hidden" id="returnUrl" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.html">
-			<input type="hidden" id="returnUrl" name="failedUrl" value="<?php echo $url_site ?>/send-failed.html">
+			<input type="hidden" id="returnUrl" name="existUrl" value="<?php echo $url_site ?>/article-already-exists.php">
+			<input type="hidden" id="returnUrl" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.php">
+			<input type="hidden" id="returnUrl" name="failedUrl" value="<?php echo $url_site ?>/send-failed.php">
 			<input type="hidden" id="token" name="token" value="sdf389dxbf1sdz51fga65dfg74asdf">
 			<input type="hidden" id="conferenceId" name="conference_id" value="1">
 			<div class="row">
@@ -26,7 +26,7 @@
 		    </div>
 		    <div class="row">
 		    	<div class="input-field">
-		          <input id="phone" name="phone" type="text">
+		          <input id="phone" name="phone" type="number">
 		          <label for="phone">Điện thoại</label>
 		        </div>
 		    </div>
@@ -50,9 +50,9 @@
 	<div class="content">
 		<form action="<?php echo $url_post ?>/sendArticle" method="post" id="presenterForm" enctype="multipart/form-data" data-parsley-validate>
 			<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/sendArticle">
-			<input type="hidden" id="returnUrl" name="existUrl" value="<?php echo $url_site ?>/article-already-exists.html">
-			<input type="hidden" id="returnUrl" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.html">
-			<input type="hidden" id="returnUrl" name="failedUrl" value="<?php echo $url_site ?>/send-failed.html">
+			<input type="hidden" id="returnUrl" name="existUrl" value="<?php echo $url_site ?>/article-already-exists.php">
+			<input type="hidden" id="returnUrl" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.php">
+			<input type="hidden" id="returnUrl" name="failedUrl" value="<?php echo $url_site ?>/send-failed.php">
 			<input type="hidden" id="token" name="token" value="sdf389dxbf1sdz51fga65dfg74asdf">
 			<input type="hidden" id="conferenceId" name="conference_id" value="1">
 			<div class="steps-container">
@@ -76,7 +76,7 @@
 					    </div>
 					    <div class="row">
 					    	<div class="input-field">
-					          <input id="phone_2" name="phone" type="text" data-parsley-required data-parsley-group="step1">
+					          <input id="phone_2" name="phone"  type="number" data-parsley-required data-parsley-group="step1">
 					          <label for="phone_2">Điện thoại</label>
 					        </div>
 					    </div>
@@ -130,6 +130,7 @@
 						<div class="row">
 							<div class="input-field">
 						      <input type="file" name="fileUpload" class="file-field" placeholder="Bài tham luận" accept=".doc, .docx">
+						      <label for="fileUpload">Bài tham luận</label>
 						    </div>
 						</div>
 						<div class="button">
@@ -173,83 +174,83 @@
 		<span class="close"><i class="far fa-times-circle"></i></span>
 	</div>
 	<div class="modal-content">
-		<div class="search">
-			<p class="note">Nhập <strong>Email</strong> và <strong>Mã bài tham luận</strong> để tìm thông tin bài tham luận</p>
-			<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/searchArticle">
-			<div class="rowSearch">
-		        <div class="input-field">
-		          <input id="email" name="email" type="text">
-		          <label for="email">Email</label>
-		        </div>
-		        <div class="input-field">
-		          <input id="articleId" name="article_id" type="text">
-		          <label for="articleId">Mã bài tham luận</label>
-		        </div>
-				<div class="input-field">
-					<a href="#" class="btn btnSearch"><i class="fas fa-search"></i> Tìm</a>
+		<form action="http://localhost/cf/api/updateArticle" method="post" id="updateForm" class="updateform" enctype="multipart/form-data" data-parsley-validate>
+			<input type="hidden" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.php">
+			<input type="hidden" name="failedUrl" value="<?php echo $url_site ?>/tlns/send-failed.php">
+			<input type="hidden" id="conferenceId" name="conference_id" value="1">
+			<input type="hidden" id="id" name="id">
+			<div class="search">
+				<p class="note">Nhập <strong>Email</strong> và <strong>Mã bài tham luận</strong> để tìm thông tin bài tham luận</p>
+				<input type="hidden" id="postLink" name="postLink" value="<?php echo $url_post ?>/searchArticle">
+				<div class="rowSearch">
+			        <div class="input-field">
+			          <input id="email" name="email" type="text" data-parsley-required >
+			          <label for="email">Email</label>
+			        </div>
+			        <div class="input-field">
+			          <input id="articleId" name="article_id" type="text" data-parsley-required >
+			          <label for="articleId">Mã bài tham luận</label>
+			        </div>
+					<div class="input-field">
+						<a href="#" class="btn btnSearch"><i class="fas fa-search"></i> Tìm</a>
+					</div>
 				</div>
+				<div class="clear"></div>
 			</div>
-			<div class="clear"></div>
-		</div>
-		<div class="articleInfo" id="articleInfo">
-			<form action="http://localhost/cf/api/updateArticle" method="post" id="updateForm" class="updateform" enctype="multipart/form-data">
-				<input type="hidden" name="successUrl" value="<?php echo $url_site ?>/thanks-for-send.html">
-				<input type="hidden" name="failedUrl" value="<?php echo $url_site ?>/tlns/send-failed.html">
-				<input id="articleId" name="article_id" type="hidden">
-				<input type="hidden" id="conferenceId" name="conference_id" value="1">
-				<div class="row">
-			        <div class="input-field">
-			          <input id="tieude" name="tieude" type="text" data-parsley-required>
-			          <label for="tieude">Tên bài tham luận</label>
-			        </div>
-				</div>
-				<div class="row">
-			        <div class="input-field">
-			          <input id="title" name="title" type="text" data-parsley-required>
-			          <label for="title">Tên bài Tiếng Anh</label>
-			        </div>
-				</div>
-				<div class="row">
-			        <div class="input-field">
-			          <input id="tukhoa" name="tukhoa" type="text" data-parsley-required>
-			          <label for="tukhoa">Từ khóa</label>
-			        </div>
-				</div>
-				<div class="row">
-			        <div class="input-field">
-			          <input id="keyword" name="keyword" type="text" data-parsley-required>
-			          <label for="keyword">Từ khóa Tiếng Anh</label>
-			        </div>
-				</div>
-				<div class="row">
-			        <div class="input-field">
-			          <textarea id="tomtat" name="tomtat" type="text" data-parsley-required></textarea>
-			          <label for="tomtat">Tóm tắt </label>
-			        </div>
-				</div>
-				<div class="row">
-			        <div class="input-field">
-			          <textarea id="abtract" name="abtract" type="text" data-parsley-required></textarea>
-			          <label for="abtract">Tóm tắt Tiếng Anh</label>
-			        </div>
-				</div>
-				<div class="row">
-					<div class="input-field">
-				      <input type="file" name="fileUpload" id="fileUpload" class="file-field" placeholder="Bài tham luận mới" accept=".doc, .docx">
-				      <label for="fileUpload">Bài tham luận mới</label>
-				    </div>
-				</div>
-				<div class="row oldFileLink">
-					<div class="input-field">
-				      <a href="" id="oldFileLink" target="_blank">Xem bài tham luận cũ</a>
-				      <input type="hidden" name="oldFile" id="oldFile">
-				    </div>
-				</div>
-				<div class="button">
-					<button href="#" class="btn" id="submit"><i class="far fa-envelope"></i> Cập nhật thông tin</button>
-				</div>
-			</form>
-		</div>
+			<div class="articleInfo" id="articleInfo">					
+					<div class="row">
+				        <div class="input-field">
+				          <input id="tieude" name="tieude" type="text" data-parsley-required>
+				          <label for="tieude">Tên bài tham luận</label>
+				        </div>
+					</div>
+					<div class="row">
+				        <div class="input-field">
+				          <input id="title" name="title" type="text" data-parsley-required>
+				          <label for="title">Tên bài Tiếng Anh</label>
+				        </div>
+					</div>
+					<div class="row">
+				        <div class="input-field">
+				          <input id="tukhoa" name="tukhoa" type="text" data-parsley-required>
+				          <label for="tukhoa">Từ khóa</label>
+				        </div>
+					</div>
+					<div class="row">
+				        <div class="input-field">
+				          <input id="keyword" name="keyword" type="text" data-parsley-required>
+				          <label for="keyword">Từ khóa Tiếng Anh</label>
+				        </div>
+					</div>
+					<div class="row">
+				        <div class="input-field">
+				          <textarea id="tomtat" name="tomtat" type="text" data-parsley-required></textarea>
+				          <label for="tomtat">Tóm tắt </label>
+				        </div>
+					</div>
+					<div class="row">
+				        <div class="input-field">
+				          <textarea id="abtract" name="abtract" type="text" data-parsley-required></textarea>
+				          <label for="abtract">Tóm tắt Tiếng Anh</label>
+				        </div>
+					</div>
+					<div class="row">
+						<div class="input-field">
+					      <input type="file" name="fileUpload" id="fileUpload" class="file-field" placeholder="Bài tham luận mới" accept=".doc, .docx">
+					      <label for="fileUpload">Bài tham luận mới</label>
+					    </div>
+					</div>
+					<div class="row oldFileLink">
+						<div class="input-field">
+					      <a href="" id="oldFileLink" target="_blank">Xem bài tham luận cũ</a>
+					      <input type="hidden" name="oldFile" id="oldFile">
+					    </div>
+					</div>
+					<div class="button">
+						<button href="#" class="btn" id="submit"><i class="far fa-envelope"></i> Cập nhật thông tin</button>
+					</div>
+			</div>
+		</form>
 	</div>
 </div>
 <div id="listArticles" class="modal listarticles">
@@ -300,8 +301,8 @@
 		<p>Vùng đất Nam bộ, Việt Nam đã trải qua hàng trăm năm khai hoang, xây dựng và phát triển và có hàng ngàn năm trước đó với một nền văn hóa Phù Nam hùng mạnh. Trong suốt thời gian đó, nhiều sự kiện văn hóa, lịch sử quan trọng đã diễn ra  tại vùng đất này với nhiều thay đổi về tự nhiên và con người. Theo dòng thời gian, những thay đổi đó cũng đã làm chuyển biến trong nhận thức, phong tục tập quán của người dân. Theo đó, những giá trị đặc biệt trong nhân sinh của con người sinh sống ở từng khu vực địa lý nhất định đã hình thành thông qua sự ra đời của nhiều tôn giáo, tín ngưỡng, lễ hội, nền văn học nghệ thuật và nếp sống của người dân.</p>
 		<p>Trong giai đoạn hiện nay, việc xây dựng và phát triển kinh tế, văn hóa, giáo dục,... đều có một phần gắn với những phát triển nhân sinh của con người và vùng đất Nam Bộ. Trên cơ sở đó, Trường Đại học An Giang tổ chức Hội thảo Khoa học “Triết lý nhân sinh của người dân Nam bộ”.</p>
 		<div class="button">
-			<a href="#" class="btn">ĐĂNG KÝ THAM DỰ</a> &nbsp; &nbsp;
-			<a href="#" class="btn">GỬI BÀI THAM LUẬN</a>
+			<a href="javascript:showModal('#registration')" class="btn">ĐĂNG KÝ THAM DỰ</a> &nbsp; &nbsp;
+			<a href="javascript:showModal('#presenter')" class="btn">GỬI BÀI THAM LUẬN</a>
 		</div>
 	</div>
 	<div class="clear"></div>
@@ -388,4 +389,3 @@
 </footer>
 <div class="scrollToTop"><i class="fas fa-arrow-up"></i></div>
 </body>
-</html>
