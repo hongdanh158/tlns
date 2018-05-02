@@ -25,6 +25,11 @@
 		        </div>
 		    </div>
 		    <div class="row">
+				<label for=""><strong>Tham quan thực địa:</strong> </label> &nbsp;
+		          <label for="sightseeing1"><input type="radio" name="sightseeing" value="1" id="sightseeing1"> Có</label> &nbsp; &nbsp; &nbsp;
+		          <label for="sightseeing2"><input type="radio" name="sightseeing" value="0" id="sightseeing2"> Không</label>
+		    </div>
+		    <div class="row">
 		    	<div class="input-field">
 		          <input id="phone" name="phone" type="number">
 		          <label for="phone">Điện thoại</label>
@@ -300,10 +305,6 @@
 	<div class="right wow fadeIn" data-wow-duration="1.5s">
 		<p>Vùng đất Nam bộ, Việt Nam đã trải qua hàng trăm năm khai hoang, xây dựng và phát triển và có hàng ngàn năm trước đó với một nền văn hóa Phù Nam hùng mạnh. Trong suốt thời gian đó, nhiều sự kiện văn hóa, lịch sử quan trọng đã diễn ra  tại vùng đất này với nhiều thay đổi về tự nhiên và con người. Theo dòng thời gian, những thay đổi đó cũng đã làm chuyển biến trong nhận thức, phong tục tập quán của người dân. Theo đó, những giá trị đặc biệt trong nhân sinh của con người sinh sống ở từng khu vực địa lý nhất định đã hình thành thông qua sự ra đời của nhiều tôn giáo, tín ngưỡng, lễ hội, nền văn học nghệ thuật và nếp sống của người dân.</p>
 		<p>Trong giai đoạn hiện nay, việc xây dựng và phát triển kinh tế, văn hóa, giáo dục,... đều có một phần gắn với những phát triển nhân sinh của con người và vùng đất Nam Bộ. Trên cơ sở đó, Trường Đại học An Giang tổ chức Hội thảo Khoa học “Triết lý nhân sinh của người dân Nam bộ”.</p>
-		<div class="button">
-			<a href="javascript:showModal('#registration')" class="btn">ĐĂNG KÝ THAM DỰ</a> &nbsp; &nbsp;
-			<a href="javascript:showModal('#presenter')" class="btn">GỬI BÀI THAM LUẬN</a>
-		</div>
 	</div>
 	<div class="clear"></div>
 </section>
@@ -317,10 +318,6 @@
 			<p>Nhằm nâng cao nhận thức, kiến thức văn hóa bản địa và tạo điều kiện cho các nhà khoa học, cán bộ, giảng viên và sinh viên có thể trao đổi, chia sẻ những kiến thức về vùng đất đa dạng về tôn giáo, phong tục tập quán, cũng như những nét văn hóa và bản sắc dân tộc đặc trưng của con người Nam bộ, nơi được xem như tiểu Cộng đồng văn hóa ASEAN.</p>
 			<p>Hội thảo cũng là dịp để các nhà khoa học và những người quan tâm khác có thể phân tích những thách thức, những cơ hội hợp tác mới, chia sẻ kinh nghiệm để hiểu rõ hơn về bản sắc dân tộc, phong tục, tập quán, truyền thống văn hóa, sự giao thoa văn hóa và triết lý nhân sinh của người dân Nam bộ xưa và nay nói riêng và khu vực Hạ lưu sông Mê Kông nói chung.</p>
 			<p>Những cơ sở khoa học được rút ra từ hội thảo sẽ là nguồn tư liệu quý để kiến nghị và đề xuất đến các nhà quản lý, nhà thực thi chính sách của địa phương, vùng và quốc gia hoạch định chính sách kế thừa và phát huy nền văn hóa bản địa ngày càng tốt hơn.</p>
-		</div>
-		<div class="button">
-			<a href="javascript:showModal('#registration')" class="btn">ĐĂNG KÝ THAM DỰ</a> &nbsp; &nbsp;
-			<a href="javascript:showModal('#presenter')" class="btn">GỬI BÀI THAM LUẬN</a>
 		</div>
 	</div>
 	
