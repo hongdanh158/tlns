@@ -64,42 +64,42 @@ $(document).ready(function() {
 			$(this).closest('.input-field').find('label').eq(0).removeClass('active');
 		}
 	});
-	$('#registration #submit').click(function(event) {
-		var postLink     = $('#registration #postLink').val();
-		var token     = $('#registration #token').val();
-		var name         = $('#registration #name').val();
-		var email        = $('#registration #email').val();
-		var phone        = $('#registration #phone').val();
-		var address      = $('#registration #address').val();
-		var conferenceId = $('#registration #conferenceId').val();
-		$.ajax({
-			url: postLink,
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				token			: token,
-				email  			: email,
-				name   			: name,
-				phone   		: phone,
-				address 		: address,
-				conference_id 	: conferenceId,
-            },
-             beforeSend: function() {
-              // $('#divloading').addClass('show');
-            },
-            success:function(result) {
-            	if (result != 0 && result != 1) {
-            		successNotiTR("Bạn đã đăng ký tham dự thành công!");
-            	}
-            	if (result == 1) {
-            		errorNotiTR('Thông tin đăng ký đã tồn tại!');
-            	}
-            	if (result == 0) {
-            		waringNotiTR('Đăng ký thất bại, vui lòng thử lại!')
-            	}
-            }
-		})		
-	});
+	// $('#registration #submit').click(function(event) {
+	// 	var postLink     = $('#registration #postLink').val();
+	// 	var token     = $('#registration #token').val();
+	// 	var name         = $('#registration #name').val();
+	// 	var email        = $('#registration #email').val();
+	// 	var phone        = $('#registration #phone').val();
+	// 	var address      = $('#registration #address').val();
+	// 	var conferenceId = $('#registration #conferenceId').val();
+	// 	$.ajax({
+	// 		url: postLink,
+	// 		type: 'POST',
+	// 		dataType: 'json',
+	// 		data: {
+	// 			token			: token,
+	// 			email  			: email,
+	// 			name   			: name,
+	// 			phone   		: phone,
+	// 			address 		: address,
+	// 			conference_id 	: conferenceId,
+ //            },
+ //             beforeSend: function() {
+ //              // $('#divloading').addClass('show');
+ //            },
+ //            success:function(result) {
+ //            	if (result != 0 && result != 1) {
+ //            		successNotiTR("Bạn đã đăng ký tham dự thành công!");
+ //            	}
+ //            	if (result == 1) {
+ //            		errorNotiTR('Thông tin đăng ký đã tồn tại!');
+ //            	}
+ //            	if (result == 0) {
+ //            		waringNotiTR('Đăng ký thất bại, vui lòng thử lại!')
+ //            	}
+ //            }
+	// 	})		
+	// });
 	$('.search .btnSearch').click(function(event) {
         var postLink     = $('.search #postLink').val();
         var email        = $('.search #email').val();

@@ -86,6 +86,11 @@
 					        </div>
 					    </div>
 					    <div class="row">
+							<label for=""><strong>Tham quan thực địa:</strong> </label> &nbsp;
+					          <label for="sightseeing1"><input type="radio" name="sightseeing" value="1" id="sightseeing1"> Có</label> &nbsp; &nbsp; &nbsp;
+					          <label for="sightseeing2"><input type="radio" name="sightseeing" value="0" id="sightseeing2"> Không</label>
+					    </div>
+					    <div class="row">
 					        <div class="input-field">
 					          <textarea id="address_2" name="address" type="text" class="address"></textarea>
 					          <label for="address_2">Địa chỉ liên lạc</label>
