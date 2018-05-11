@@ -387,7 +387,7 @@
 	</div>
 </section>
 <footer class="footer">
-	<?php include('footer.php') ?>
+	<?php include('footer.php'); ?>
 </footer>
 <div class="scrollToTop"><i class="fas fa-arrow-up"></i></div>
 </body>
